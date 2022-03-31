@@ -78,6 +78,21 @@ const calculate = () =>{
     currentNumber = result
     calculatorOperator = ""
 }
+const persentages = document.querySelector(".percentage");
+persentages.addEventListener("click", ()=>{
+    calculate_percentage()
+    updateScreen(currentNumber);
+})
+
+const calculate_percentage = () =>{
+    let result = ""
+    if (prevNumber === "") {
+        result = currentNumber/100;
+    }else if (prevNumber !== "") {
+        result = (prevNumber * currentNumber)/100;
+    }
+    currentNumber = result
+}
 
 const clearAll = () =>{
     prevNumber = ""
@@ -105,23 +120,3 @@ decimal.addEventListener("click", (event)=>{
 })
 
 
-const persentages = document.querySelector(".percentage");
-percent.addEventListener("click", ()=>{
-    calculate_percentage()
-    console.log(persentages)
-    // updateScreen(currentNumber)
-})
-const calculate_percentage = () =>{
-    // let result = ""
-    if (prevNumber === "") {
-        // result = currentNumber/100;
-        currentNumber = currentNumber/100;
-        updateScreen(currentNumber);
-    } 
-    if (prevNumber !== "") {
-        currentNumber = (prevNumber*currentNumber)/100;
-        updateScreen(currentNumber);
-        // result = (prevNumber*currentNumber)/100;
-    }
-    // currentNumber = result
-}
